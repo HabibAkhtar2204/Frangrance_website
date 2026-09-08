@@ -12,6 +12,6 @@ export class authRepository {
         password,
       }),
     }).then((res) => res.json());
-    console.log(result);
+    //console.log(result);
   }
 }
