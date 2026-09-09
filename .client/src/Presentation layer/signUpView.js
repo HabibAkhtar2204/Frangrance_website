@@ -1,14 +1,16 @@
-import { authRepository } from "../Data layer/authRepository.js";
-
-console.log("sign up view running");
+import { AuthService } from "../Business layer/authService.js";
 
 const form = document.getElementById("signup-form");
-const authRepo = new authRepository();
+const authService = new AuthService();
 form.addEventListener("submit", handleSubmit);
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  authRepo.signUp(email, password);
+  try {
+    await authService.signUp(email, password);
+  } catch (error) {
+    alert(error.message);
+  }
 }

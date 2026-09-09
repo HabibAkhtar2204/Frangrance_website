@@ -14,4 +14,5 @@ export class authRepository {
     }).then((res) => res.json());
     //console.log(result);
   }
+  async findByEmail() {}
 }
