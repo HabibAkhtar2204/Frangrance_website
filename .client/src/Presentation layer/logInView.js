@@ -1,16 +1,16 @@
 import { AuthService } from "../Business layer/authService.js";
 
-const signUpForm = document.getElementById("signup-form");
-signUpForm.addEventListener("submit", handleSignUp);
+const logInForm = document.getElementById("login-form");
+logInForm.addEventListener("submit", handleLogIn);
 
 const authService = new AuthService();
 
-async function handleSignUp(event) {
+async function handleLogIn(event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   try {
-    await authService.signUp(email, password);
+    await authService.logIn(email, password);
   } catch (error) {
     alert(error.message);
   }

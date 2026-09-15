@@ -14,4 +14,7 @@ export class AuthService {
     }
     return await this.authRepository.signUp(email, password);
   }
+  async logIn(email, password) {
+    return await this.authRepository.logIn(email, password);
+  }
 }

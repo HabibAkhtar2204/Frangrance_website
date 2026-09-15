@@ -2,7 +2,7 @@ export class authRepository {
   constructor() {}
 
   async signUp(email, password) {
-    const result = await fetch("/api/register", {
+    await fetch("/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -12,7 +12,19 @@ export class authRepository {
         password,
       }),
     }).then((res) => res.json());
-    //console.log(result);
+  }
+
+  async logIn(email, password) {
+    await fetch("/api/logIn", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((res) => res.json());
   }
   async findByEmail() {}
 }

@@ -19,6 +19,10 @@ class RegistrationService {
     const hashedPassword = await bcrypt.hash(plaintextPassword, 10);
     return await this.userRepository.create(email, hashedPassword);
   }
+  async logIn(email, plaintextPassword) {
+    console.log("checking email");
+    console.log(await this.userRepository.findByEmail(email));
+  }
 }
 
 module.exports = RegistrationService;
